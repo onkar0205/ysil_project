@@ -9,8 +9,8 @@ from project.connectors.mssql_connector import MSSQLConnector
 from project.utils.db_utils import fetch_data_from_table
 from project.utils.s3_utils import dump_data_into_s3_bucket, get_previous_date
 
-access_key="AKIAZI2LB77CCADMIH44"
-secret_key="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"
+access_key=""
+secret_key=""
 s3_bucket = "ysilbucket"
 
 with open('/home/onkar/airflow/dags/project/config/source_config.json') as f:
@@ -39,7 +39,7 @@ def extract_data(table, query, database_type, params, source_name, s3_bucket, ac
         read_data_of_date = read_data_from_date.strftime('%Y-%m-%d')
 
         print(f"Processing data for date: {read_data_of_date}")
-        
+
         formatted_query = query.format(read_data_of_date=read_data_of_date)
         print("Query: ", formatted_query)
 
