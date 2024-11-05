@@ -1,0 +1,71 @@
+{
+    "sources": {
+        "mos": {
+            "database_type" : "mssql",
+            "params": {
+                "jdbc_driver_path": "/home/onkar/Downloads/jar files/mssql-jdbc-12.8.1.jre11.jar",
+                "host": "localhost",
+                "port": "1433",
+                "database": "master", 
+                "user": "SA",
+                "password": "iauro@100"
+            },
+            "table_queries": {
+                "mos_1": "SELECT * FROM mos_1 WHERE created_at >= '{read_data_of_date} 00:00:00' AND created_at < '{read_data_of_date} 23:59:59'",
+                "mos_2": "SELECT * FROM mos_2 WHERE updated_at >= '{read_data_of_date} 00:00:00' AND updated_at < '{read_data_of_date} 23:59:59'"
+            },
+            "schedule_time": "14:30",
+            "historic_date": "2024-10-21"
+        },
+        "ameyo": {
+            "database_type" : "postgresql",
+            "params": {
+                "jdbc_driver_path": "/home/onkar/Downloads/jar files/postgresql-42.7.4.jar",
+                "host": "localhost",
+                "port": "5432",
+                "database": "postgres",
+                "user": "postgres",
+                "password": "pass123"
+            },
+            "table_queries": {
+                "ameyo_1": "SELECT * FROM ameyo_1 WHERE updated_at >= '{read_data_of_date} 00:00:00' AND updated_at < '{read_data_of_date} 23:59:59'"
+            },
+            "schedule_time": "14:40",
+            "historic_date": "2023-11-24"
+        },
+        "tcs_back_office": {
+            "database_type" : "oracle",
+            "params": {
+                "jdbc_driver_path": "/home/onkar/Downloads/jar files/ojdbc8.jar",
+                "host": "localhost",
+                "port": "1521",
+                "database": "FREE",
+                "user": "SYS AS SYSDBA",
+                "password": "pass123"
+            },
+            "table_queries": {
+                "tcs_back_office_1": "SELECT * FROM tcs_back_office_1 WHERE updated_at >= TO_DATE('{read_data_of_date} 00:00:00', 'YYYY-MM-DD HH24:MI:SS') AND updated_at < TO_DATE('{read_data_of_date} 23:59:59', 'YYYY-MM-DD HH24:MI:SS')",
+                "departments": "SELECT * FROM departments WHERE updated_at >= TO_DATE('{read_data_of_date} 00:00:00', 'YYYY-MM-DD HH24:MI:SS') AND updated_at < TO_DATE('{read_data_of_date} 23:59:59', 'YYYY-MM-DD HH24:MI:SS')"
+            },
+            "schedule_time": "14:50",
+            "historic_date": "2023-11-24"
+        },
+        "tcs_front_office": {
+            "database_type" : "oracle",
+            "params": {
+                "jdbc_driver_path": "/home/onkar/Downloads/jar files/ojdbc8.jar",
+                "host": "localhost",
+                "port": "1521",
+                "database": "FREE",
+                "user": "SYS AS SYSDBA",
+                "password": "pass123"
+            },
+            "table_queries": {
+                "tcs_front_office_1": "SELECT * FROM tcs_back_office_1 WHERE updated_at >= TO_DATE('{read_data_of_date} 00:00:00', 'YYYY-MM-DD HH24:MI:SS') AND updated_at < TO_DATE('{read_data_of_date} 23:59:59', 'YYYY-MM-DD HH24:MI:SS')",
+                "departments": "SELECT * FROM departments WHERE updated_at >= TO_DATE('{read_data_of_date} 00:00:00', 'YYYY-MM-DD HH24:MI:SS') AND updated_at < TO_DATE('{read_data_of_date} 23:59:59', 'YYYY-MM-DD HH24:MI:SS')"
+            },
+            "schedule_time": "14:15",
+            "historic_date": "2023-11-24"
+        }
+    }
+}
