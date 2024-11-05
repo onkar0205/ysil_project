@@ -1,0 +1,10 @@
+# Python files
+*.pyc
+__pycache__/
+
+# Configuration files
+config.ini
+settings.py
+
+# Logs
+logs/
