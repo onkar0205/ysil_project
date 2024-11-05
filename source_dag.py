@@ -27,8 +27,8 @@ default_args = {
 }
 
 def extract_data(table, query, database_type, params, source_name, s3_bucket, access_key, secret_key):
-    s3_json_path = f"{source_name}/{source_name}.json"
-    read_data_from_date = datetime.strptime(get_previous_date(s3_bucket, s3_json_path, access_key, secret_key, table, config, source_name), '%Y-%m-%d') + timedelta(days=1)    
+    previous_date_json_path = f"{source_name}/{source_name}.json"
+    read_data_from_date = datetime.strptime(get_previous_date(s3_bucket, previous_date_json_path, access_key, secret_key, table, config, source_name), '%Y-%m-%d') + timedelta(days=1)    
     read_data_till_date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)    
     print("read_data_from_date :",read_data_from_date)
     print("read_data_till_date :",read_data_till_date)
@@ -39,7 +39,7 @@ def extract_data(table, query, database_type, params, source_name, s3_bucket, ac
         read_data_of_date = read_data_from_date.strftime('%Y-%m-%d')
 
         print(f"Processing data for date: {read_data_of_date}")
-
+        
         formatted_query = query.format(read_data_of_date=read_data_of_date)
         print("Query: ", formatted_query)
 
