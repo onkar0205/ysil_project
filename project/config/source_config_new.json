@@ -1,0 +1,44 @@
+{
+    "sources": {
+        "mos": {
+            "database_type" : "mssql",
+            "params": {
+                "jdbc_driver_path": "/home/onkar/Downloads/jar files/mssql-jdbc-12.8.1.jre11.jar",
+                "host": "localhost",
+                "port": "1433",
+                "database": "master", 
+                "user": "SA",
+                "password": "iauro@100"
+            },
+            "table_queries": {
+                "mos_1": {
+                    "data_query": "SELECT * FROM mos_1 WHERE created_at >= '{read_data_of_date} 00:00:00' AND created_at < '{read_data_of_date} 23:59:59'",
+                    "min_date_query":"SELECT min(created_at) AS min_date FROM mos_1"
+                },
+                "mos_2": {
+                    "data_query": "SELECT * FROM mos_2 WHERE updated_at >= '{read_data_of_date} 00:00:00' AND updated_at < '{read_data_of_date} 23:59:59'",
+                    "min_date_query":"SELECT min(updated_at) AS min_date FROM mos_2"
+                }
+            },
+            "schedule_time": "14:30"
+        },
+        "ameyo": {
+            "database_type" : "postgresql",
+            "params": {
+                "jdbc_driver_path": "/home/onkar/Downloads/jar files/postgresql-42.7.4.jar",
+                "host": "localhost",
+                "port": "5432",
+                "database": "postgres",
+                "user": "postgres",
+                "password": "pass123"
+            },
+            "table_queries": {
+                "ameyo_1": {
+                    "data_query": "SELECT * FROM ameyo_1 WHERE updated_at >= '{read_data_of_date} 00:00:00' AND updated_at < '{read_data_of_date} 23:59:59'",
+                    "min_date_query":"SELECT min(updated_at) from ameyo_1"
+                }
+            },
+            "schedule_time": "14:40"
+        }
+    }
+}

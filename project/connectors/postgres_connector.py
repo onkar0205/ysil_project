@@ -12,7 +12,6 @@ class PostgresConnector:
             .getOrCreate()
         self.spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "true")
 
-
     def read_table(self, query):
         return self.spark.read \
             .format("jdbc") \
