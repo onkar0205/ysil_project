@@ -20,7 +20,6 @@ s3_bucket = "ysilbucket"
 with open('/home/onkar/airflow/dags/project/config/source_config_new.json') as f:
     config = json.load(f)
 
-# Default arguments for DAG
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,

@@ -4,7 +4,6 @@ import pandas as pd
 import json
 from botocore.exceptions import ClientError
 from pyspark.sql import DataFrame
-from project.utils.db_utils import fetch_data_from_table
 from datetime import datetime, timedelta
 
 class S3Connector:
